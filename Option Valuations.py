@@ -30,7 +30,7 @@ def monte_carlo_brownian_motion(strike, option='call'):
    else:
        hT = np.maximum(strike - S[-1], 0)
    C0 = np.exp(-r * T) * np.mean(hT)
-   return option + ' option value: ' + str(C0)
+   return option + ' option value with strike price of ' + str(strike) + ': ' + str(C0)
 
 print(monte_carlo_brownian_motion(strike=110, option='call'))
 print(monte_carlo_brownian_motion(strike=110, option='put'))

@@ -5,8 +5,8 @@ import pandas as pd
 from pylab import plt
 
 
-raw = pd.read_csv('/Users/yutakaobi/Documents/finance/price_table.csv', index_col=0, parse_dates=True).dropna()
-symbols = pd.read_csv('/Users/yutakaobi/Documents/finance/price_table.csv', nrows=0)
+raw = pd.read_csv('/Users/username/Documents/finance/price_table.csv', index_col=0, parse_dates=True).dropna()
+symbols = pd.read_csv('/Users/username/Documents/finance/price_table.csv', nrows=0)
 
 
 products = []

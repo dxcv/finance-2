@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from pylab import plt, mpl
 
-data = pd.read_csv('/Users/yutakaobi/Documents/finance/GOOGLE-Table 1.csv', index_col=0)
+data = pd.read_csv('/Users/username/Documents/finance/GOOGLE-Table 1.csv', index_col=0)
 
 SMA1 = 42
 SMA2 = 252

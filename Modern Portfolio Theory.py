@@ -6,7 +6,6 @@ from pylab import plt
 
 
 price_table = '/Users/username/Documents/finance/price_table.csv' #full folder path
-
 raw = pd.read_csv(price_table, index_col=0, parse_dates=True).dropna()
 symbols = pd.read_csv(price_table, nrows=0)
 
@@ -54,9 +53,9 @@ eweights = np.array(noa * [1 / noa])
 opts = sco.minimize(Minimum_Sharpe_Ratio, eweights, method='SLSQP', bounds=bnds, constraints=cons)
 print('Maximum Sharpe Ratio details:')
 print('Sharpe Ratio: ' + str(Return(opts['x']) / Volatility(opts['x'])))
-print('Return with maximun sharpe ratio: ' + str(Return((opts['x'])).round(3)))
-print('Volatility with maximum sharpe ratio: ' + str(Volatility(opts['x']).round(3)))
-print('Allocation details to achieve maximum sharpe ratio:')
+print('Volatility: ' + str(Volatility(opts['x']).round(3)))
+print('Portfolio Return: ' + str(Return((opts['x'])).round(3)))
+print('Allocation details:')
 for allocation in range(len(opts['x'].round(3))):
    print('Allocation for ' + str(products[allocation]) + ': ' +
          str(opts['x'].round(3)[allocation]))
@@ -66,9 +65,9 @@ print('\n')
 optv = sco.minimize(Volatility, eweights, method='SLSQP', bounds=bnds, constraints=cons)
 print('Minimum Volatility details:')
 print('Volatility: ' + str(Volatility(optv['x']).round(3)))
-print('Return with minimum volatility: ' + str(Return(optv['x']).round(3)))
 print('Sharpe Ratio: ' + str(Return(optv['x']) / Volatility(optv['x'])))
-print('Allocation details to achieve minimum volatility:')
+print('Portfolio Return: ' + str(Return(optv['x']).round(3)))
+print('Allocation details:')
 for allocation in range(len(optv['x'].round(3))):
    print('Allocation for ' + str(products[allocation]) + ': ' +
          str(optv['x'].round(3)[allocation]))

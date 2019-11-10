@@ -5,7 +5,7 @@ import pandas as pd
 from pylab import plt
 
 
-price_table = '/Users/yutakaobi/Documents/finance/price_table.csv'
+price_table = '/Users/yutakaobi/Documents/finance/price_table.csv' #full folder path
 
 raw = pd.read_csv(price_table, index_col=0, parse_dates=True).dropna()
 symbols = pd.read_csv(price_table, nrows=0)

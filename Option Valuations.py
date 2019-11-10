@@ -1,9 +1,11 @@
 import numpy as np
 import numpy.random as npr
 
+
 M = 50
 I = 10000
 sigma = 0.25
+
 
 def standard_normal_dist(M, I, anti_paths=True, mo_match=True):
    if anti_paths is True:
@@ -14,6 +16,7 @@ def standard_normal_dist(M, I, anti_paths=True, mo_match=True):
    if mo_match is True:
        sn = (sn - sn.mean()) / sn.std()
    return sn
+
 
 def monte_carlo_brownian_motion(S0, K, r, T, option_type):
    dt = T / M

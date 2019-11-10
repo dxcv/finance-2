@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from pylab import plt, mpl
 
+
 price_table = '/Users/username/Documents/finance/GOOGLE-Table 1.csv' #full folder path
 
 data = pd.read_csv(price_table, index_col=0)

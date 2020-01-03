@@ -258,25 +258,25 @@ def OPV(S0, K, r, T, option_type):
 def IMF_Release(raw, data_type):
     country = []
     if data_type == 'population':
-        substring = '_LP'
+        suffix = '_LP'
     elif data_type == 'gdp':
-        substring = '_NGDPD'
+        suffix = '_NGDPD'
     elif data_type == 'import':
-        substring = '_TMG_RPCH'
+        suffix = '_TMG_RPCH'
     elif data_type == 'export':
-        substring = '_TXG_RPCH'
+        suffix = '_TXG_RPCH'
     elif data_type == 'unemployment':
-        substring = '_LUR'
+        suffix = '_LUR'
 
     raw = list(set(raw))
     for i in raw:
-        country.append('ODA/' + ISO3[i] + substring)
+        country.append('ODA/' + ISO3[i] + suffix)
     print(country)
     data = quandl.get(country, authtoken="-kw-n8eEQg3ZaUP8tUsr")
     data = pd.DataFrame(data)
 
     for j in range(len(raw)):
-        data.rename(columns={'ODA/' + ISO3[raw[j]] + substring + ' - Value': raw[j]}, inplace=True)
+        data.rename(columns={'ODA/' + ISO3[raw[j]] + suffix + ' - Value': raw[j]}, inplace=True)
 
     print(data)
     data.plot(figsize=(15, 7.5))

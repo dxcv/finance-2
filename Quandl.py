@@ -57,9 +57,9 @@ def SMA(select):
         res = []
         for i in range(len(df)):
             if df['Position'][i] == 1:
-                res.append('Long ' + ticker + ' on ' + str(df.index[i].date().strftime("%b %d, %Y")) + ' Price at ' + str(df['Close'][i]))
+                res.append('Buy ' + ticker + ' on ' + str(df.index[i].date().strftime("%b %d, %Y")) + ' Price at ' + str(df['Close'][i]))
             else:
-                res.append('Short ' + ticker + ' on ' + str(df.index[i].date().strftime("%b %d, %Y")) + ' Price at ' + str(df['Close'][i]))
+                res.append('Sell ' + ticker + ' on ' + str(df.index[i].date().strftime("%b %d, %Y")) + ' Price at ' + str(df['Close'][i]))
         res = np.array(res).reshape(-1, 1)
         return 'Trading Strategy for ' + str(select) + ' (Ticker: ' + ticker + ')' +\
                '\n'*2 + str(res)
@@ -285,7 +285,7 @@ def IMF_Release(raw, data_type):
     if data_type == 'population':
         plt.ylabel('Population in Millions')
     elif data_type == 'gdp':
-        plt.ylabel('GDP in USD')
+        plt.ylabel('GDP in USD Billions')
     elif data_type == 'import':
         plt.ylabel('Percentage change in Imports')
         plt.show()
@@ -295,7 +295,7 @@ def IMF_Release(raw, data_type):
         plt.show()
         return
     elif data_type == 'unemployment':
-        plt.ylabel('Unemployment Rate')
+        plt.ylabel('Unemployment Rate in percentage')
 
     plt.show()
     data_relative = data.dropna()
